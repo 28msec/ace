@@ -12,12 +12,7 @@ var deps = {
     csslint: {
         path: "mode/css/csslint.js",
         url: "https://raw.github.com/stubbornella/csslint/master/release/csslint.js",
-        needsFixup: true,
-        browserify: {
-            npmModule: "csslint@latest",
-            path: "jshint/src/jshint.js",
-            exports: "jshint"
-        },
+        needsFixup: true
     }, 
     requirejs: {
         path: "../../demo/kitchen-sink/require.js",
@@ -281,8 +276,11 @@ function browserify(_, cb) {
     })
 }
 
-getDep(deps.html5)
-getDep(deps.jshint)
-getDep(deps.jsoniq)
-getDep(deps.xqlint)
-getDep(deps.xquery)
+var args = process.argv.slice(2);
+args = args.filter(function(x) {return x[0] != "-" });
+if (!args.length)
+    args = Object.keys(deps);
+    
+args.forEach(function(key) {
+    getDep(deps[key])
+});
