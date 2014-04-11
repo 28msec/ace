@@ -1,6 +1,19 @@
+snippet declare
+guard ^
+	declare $0
+	
+
+snippet function
+guard [\s,\(]|^
+	function ${1:ns}:${2:name}(${3:arguments}){
+	${4:expr}
+	};
+	$0
+
 snippet for
 guard [\s,\(]|^
 	for $${1:item} in ${2:expr}
+	$0
 
 snippet return
 guard [\s,\(]|^
@@ -9,6 +22,7 @@ guard [\s,\(]|^
 snippet import
 guard ^
 	import module namespace ${1:ns} = "${2}";
+	$0
 
 snippet some
 guard [\s,\(]|^
@@ -20,7 +34,10 @@ guard [\s,\(]|^
 
 snippet if
 guard [\s,\(]|^
-	if(${1:true}) then ${2:expr} else ${3:true}
+	if(${1:true}) then
+	    ${2:expr}
+	else
+	    ${3:true}
 
 snippet switch
 guard [\s,\(]|^
@@ -31,7 +48,11 @@ guard [\s,\(]|^
 
 snippet try
 guard [\s,\(]|^
-	try { ${1:expr} } catch ${2:*} { ${3:expr} }
+	try {
+	    ${1:expr}
+	} catch ${2:*} {
+	    ${3:expr}
+	}
 
 snippet tumbling
 guard [\s,\(]|^
@@ -50,22 +71,27 @@ guard [\s,\(]|^
 snippet let
 guard [\s,\(]|^
 	let $${1:varname} := ${2:expr}
+	$0
 
 snippet group
 guard [\s,\(]|^
 	group by $${1:varname} := ${2:expr}
+	$0
 
 snippet order
 guard [\s,\(]|^
 	order by ${1:expr} ${2:descending}
+	$0
 
 snippet stable
 guard [\s,\(]|^
 	stable order by ${1:expr}
+	$0
 
 snippet count
 guard [\s,\(]|^
 	count $${1:varname}
+	$0
 
 snippet ordered
 guard [\s,\(]|^
@@ -97,7 +123,7 @@ snippet var
 guard [\s,\(]|^
 	declare variable $${1:varname} := ${2:expr};
 
-snippet fun
+snippet fn
 guard [\s,\(]|^
 	declare function ${1:ns}:${2:name}(${3:arguments}){
 	${4:expr}
@@ -107,3 +133,4 @@ guard [\s,\(]|^
 snippet module
 guard ^
 	module namespace ${1:ns} = "${2:http://www.example.com}";
+	$0
