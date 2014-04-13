@@ -13,7 +13,6 @@ guard [\s,\(]|^
 snippet for
 guard [\s,\(]|^
 	for $${1:item} in ${2:expr}
-	$0
 
 snippet return
 guard [\s,\(]|^
@@ -38,13 +37,6 @@ guard [\s,\(]|^
 	    ${2:expr}
 	else
 	    ${3:true}
-
-snippet switch
-guard [\s,\(]|^
-	switch(${1:"foo"})
-	case ${2:"foo"}
-	return ${3:true}
-	default return ${4:false}
 
 snippet try
 guard [\s,\(]|^
@@ -71,27 +63,22 @@ guard [\s,\(]|^
 snippet let
 guard [\s,\(]|^
 	let $${1:varname} := ${2:expr}
-	$0
 
 snippet group
 guard [\s,\(]|^
 	group by $${1:varname} := ${2:expr}
-	$0
 
 snippet order
 guard [\s,\(]|^
 	order by ${1:expr} ${2:descending}
-	$0
 
 snippet stable
 guard [\s,\(]|^
 	stable order by ${1:expr}
-	$0
 
 snippet count
 guard [\s,\(]|^
 	count $${1:varname}
-	$0
 
 snippet ordered
 guard [\s,\(]|^
@@ -112,12 +99,6 @@ guard [\s,\(]|^
 snippet cast
 guard [\s,\(]|^
 	cast as ${1:atomicType}
-
-snippet typeswitch
-guard [\s,\(]|^
-	typeswitch(${1:expr})
-	case ${2:type}  return ${3:expr}
-	default return ${4:expr}
 
 snippet var
 guard [\s,\(]|^

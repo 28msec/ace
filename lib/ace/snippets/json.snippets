@@ -1,0 +1,130 @@
+snippet declare
+guard ^
+	declare $0
+	
+
+snippet function
+guard [\s,\(]|^
+	function ${1:ns}:${2:name}(${3:arguments}){
+	${4:expr}
+	};
+	$0
+
+snippet for
+guard [\s,\(]|^
+	for $${1:item} in ${2:expr}
+
+snippet return
+guard [\s,\(]|^
+	return ${1:expr}
+	
+snippet import
+guard ^
+	import module namespace ${1:ns} = "${2}";
+	$0
+
+snippet some
+guard [\s,\(]|^
+	some $${1:varname} in ${2:expr} satisfies ${3:expr}
+
+snippet every
+guard [\s,\(]|^
+	every $${1:varname} in ${2:expr} satisfies ${3:expr}
+
+snippet if
+guard [\s,\(]|^
+	if(${1:true}) then
+	    ${2:expr}
+	else
+	    ${3:true}
+
+snippet switch
+guard [\s,\(]|^
+	switch(${1:"foo"})
+	case ${2:"foo"}
+	return ${3:true}
+	default return ${4:false}
+
+snippet try
+guard [\s,\(]|^
+	try {
+	    ${1:expr}
+	} catch ${2:*} {
+	    ${3:expr}
+	}
+
+snippet tumbling
+guard [\s,\(]|^
+	for tumbling window $${1:varname} in ${2:expr}
+	start at $${3:start} when ${4:expr}
+	end at $${5:end} when ${6:expr}
+	return ${7:expr}
+
+snippet sliding
+guard [\s,\(]|^
+	for sliding window $${1:varname} in ${2:expr}
+	start at $${3:start} when ${4:expr}
+	end at $${5:end} when ${6:expr}
+	return ${7:expr}
+
+snippet let
+guard [\s,\(]|^
+	let $${1:varname} := ${2:expr}
+
+snippet group
+guard [\s,\(]|^
+	group by $${1:varname} := ${2:expr}
+
+snippet order
+guard [\s,\(]|^
+	order by ${1:expr} ${2:descending}
+
+snippet stable
+guard [\s,\(]|^
+	stable order by ${1:expr}
+
+snippet count
+guard [\s,\(]|^
+	count $${1:varname}
+
+snippet ordered
+guard [\s,\(]|^
+	ordered { ${1:expr} }
+
+snippet unordered
+guard [\s,\(]|^
+	unordered { ${1:expr} }
+
+snippet treat
+guard [\s,\(]|^
+	treat as ${1:expr}
+
+snippet castable
+guard [\s,\(]|^
+	castable as ${1:atomicType}
+
+snippet cast
+guard [\s,\(]|^
+	cast as ${1:atomicType}
+
+snippet typeswitch
+guard [\s,\(]|^
+	typeswitch(${1:expr})
+	case ${2:type}  return ${3:expr}
+	default return ${4:expr}
+
+snippet var
+guard [\s,\(]|^
+	declare variable $${1:varname} := ${2:expr};
+
+snippet fn
+guard [\s,\(]|^
+	declare function ${1:ns}:${2:name}(${3:arguments}){
+	${4:expr}
+	};
+	$0
+
+snippet module
+guard ^
+	module namespace ${1:ns} = "${2:http://www.example.com}";
+	$0
