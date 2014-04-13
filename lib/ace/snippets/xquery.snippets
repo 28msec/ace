@@ -100,9 +100,10 @@ snippet cast
 guard [\s,\(]|^
 	cast as ${1:atomicType}
 
-snippet var
+snippet variable
 guard [\s,\(]|^
-	declare variable $${1:varname} := ${2:expr};
+	variable $${1:varname} := ${2:expr};
+	$0
 
 snippet fn
 guard [\s,\(]|^
